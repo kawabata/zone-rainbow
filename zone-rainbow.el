@@ -36,6 +36,7 @@
 
 (require 'zone)
 (require 'color)
+(require 'cl-lib)
 
 (defgroup zone-rainbow nil
   "Zone out with rainbow."
@@ -68,7 +69,7 @@
                      . ,zone-rainbow-background))
                 ))))
    (sit-for 0.1)
-   (incf k)))
+   (cl-incf k)))
 
 ;;;###autoload
 (defun zone-rainbow ()
