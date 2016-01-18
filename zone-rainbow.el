@@ -25,11 +25,7 @@
 ;;
 ;; It can directly invoked by `M-x zone-rainbow'.
 ;;
-;; It can be set as a single zone program by the following.
-;;
-;; (setq zone-programs '(zone-pgm-rainbow))
-;;
-;; Or, it can be added to zone programs by `zone-select' package.
+;; Or, it can be added to zone programs by using `zone-select' package.
 
 ;;; Code:
 
@@ -43,7 +39,7 @@
 (defcustom zone-rainbow-hue-factor 50 "Hue factor." :group 'zone-rainbow)
 (defcustom zone-rainbow-sat 1.0 "Saturation." :group 'zone-rainbow)
 (defcustom zone-rainbow-light 0.5 "Light." :group 'zone-rainbow)
-(defcustom zone-rainbow-background nil "if not nil, Background color." :group 'zone-rainbow)
+(defcustom zone-rainbow-background nil "If not nil, Background color." :group 'zone-rainbow)
 
 ;;;###autoload
 (defun zone-pgm-rainbow ()
