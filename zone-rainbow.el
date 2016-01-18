@@ -1,9 +1,13 @@
-;;; zone-rainbow.el --- Zone out with rainbow
+;;; zone-rainbow.el --- Zone out with rainbow.
 
-;; Copyright (C) 2015  KAWABATA, Taichi
-
-;; Author: KAWABATA, Taichi <kawabata.taichi@gmail.com>
+;; Filename: zone-rainbow.el
+;; Description: Zone out with rainbow
+;; Author: KAWABATA, Taichi <kawabata.taichi_at_gmail.com>
+;; Created: 2015-12-20
+;; Version: 1.160116
+;; Package-Requires: ((emacs "24.3"))
 ;; Keywords: games
+;; URL: https://github.com/kawabata/zone-rainbow
 
 ;; This program is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
@@ -23,9 +27,10 @@
 ;; Zone out with rainbow.  This code is inspired by
 ;; https://gist.github.com/mrkuc/7121179.
 ;;
-;; It can directly invoked by `M-x zone-rainbow'.
+;; It can be directly invoked by `M-x zone-rainbow'.
 ;;
-;; Or, it can be added to zone programs by using `zone-select' package.
+;; Or, it can be added to zone programs by using
+;; `zone-select-add-program' of `zone-select' package.
 
 ;;; Code:
 
