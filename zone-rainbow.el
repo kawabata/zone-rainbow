@@ -1,4 +1,4 @@
-;;; zone-rainbow.el --- Zone out with rainbow      -*- lexical-binding: t; -*-
+;;; zone-rainbow.el --- Zone out with rainbow
 
 ;; Copyright (C) 2015  KAWABATA, Taichi
 
@@ -29,10 +29,7 @@
 ;;
 ;; (setq zone-programs '(zone-pgm-rainbow))
 ;;
-;; Or, it can be added to zone programs list as follows.
-;;
-;; (callf2 mapcar 'identity zone-programs) ; in case `zone-programs' is vector.
-;; (add-to-list 'zone-programs 'zone-pgm-rainbow)
+;; Or, it can be added to zone programs by `zone-select' package.
 
 ;;; Code:
 
@@ -46,7 +43,7 @@
 (defcustom zone-rainbow-hue-factor 50 "Hue factor." :group 'zone-rainbow)
 (defcustom zone-rainbow-sat 1.0 "Saturation." :group 'zone-rainbow)
 (defcustom zone-rainbow-light 0.5 "Light." :group 'zone-rainbow)
-(defcustom zone-rainbow-background "#000000" "Background color." :group 'zone-rainbow)
+(defcustom zone-rainbow-background nil "if not nil, Background color." :group 'zone-rainbow)
 
 ;;;###autoload
 (defun zone-pgm-rainbow ()
@@ -65,8 +62,9 @@
                             (/ (* (% (+ i k) zone-rainbow-hue-factor) 1.0)
                                zone-rainbow-hue-factor)
                             zone-rainbow-sat zone-rainbow-light)))
-                (background-color
-                 . ,zone-rainbow-background)
+                ,@(when zone-rainbow-background
+                    `(background-color
+                     . ,zone-rainbow-background))
                 ))))
    (sit-for 0.1)
    (incf k)))
