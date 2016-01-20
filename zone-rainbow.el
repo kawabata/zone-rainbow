@@ -4,7 +4,7 @@
 ;; Description: Zone out with rainbow
 ;; Author: KAWABATA, Taichi <kawabata.taichi_at_gmail.com>
 ;; Created: 2015-12-20
-;; Version: 1.160116
+;; Version: 1.160120
 ;; Package-Requires: ((emacs "24.3"))
 ;; Keywords: games
 ;; URL: https://github.com/kawabata/zone-rainbow
@@ -52,22 +52,20 @@
   "Zone out with rainbow."
   (cl-loop
    while (not (input-pending-p))
-   with k = 0
-   do
+   with k = 0 do
    (cl-loop
-    for i from (window-start) to (1- (window-end))
-    do (add-text-properties
-        i (1+ i)
-        `(face ((foreground-color
-                 . ,(apply 'color-rgb-to-hex
-                           (color-hsl-to-rgb
-                            (/ (* (% (+ i k) zone-rainbow-hue-factor) 1.0)
-                               zone-rainbow-hue-factor)
-                            zone-rainbow-sat zone-rainbow-light)))
-                ,@(when zone-rainbow-background
-                    `(background-color
-                     . ,zone-rainbow-background))
-                ))))
+    for i from (window-start) to (1- (window-end)) do
+    (add-text-properties
+     i (1+ i)
+     `(face ((foreground-color
+              . ,(apply 'color-rgb-to-hex
+                        (color-hsl-to-rgb
+                         (/ (* (% (+ i k) zone-rainbow-hue-factor) 1.0)
+                            zone-rainbow-hue-factor)
+                         zone-rainbow-sat zone-rainbow-light)))
+             ,@(when zone-rainbow-background
+                 `((background-color
+                   . ,zone-rainbow-background)))))))
    (sit-for 0.1)
    (cl-incf k)))
 
@@ -81,3 +79,7 @@
 (provide 'zone-rainbow)
 
 ;;; zone-rainbow.el ends here
+
+;; Local Variables:
+;; time-stamp-pattern: "10/Version:\\\\?[ \t]+1.%02y%02m%02d\\\\?\n"
+;; End:
